@@ -13,7 +13,9 @@ const resolvers = {
       const response = await uc.run(args.id)
 
       if (response.isErr) throw new UserInputError(null, { invalidArgs: response.err })
-      return response.ok
+
+      const { value } = response.ok
+      return value
     }
   }
 }
