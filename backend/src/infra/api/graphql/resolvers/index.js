@@ -1,8 +1,8 @@
 const { GraphQLDateTime } = require('graphql-iso-date')
 
-const createListResolver  = require('./mutation/createList')
-const deleteListResolver  = require('./mutation/deleteList')
-const getListsResolver  = require('./query/getLists')
+const createListResolver  = require('./mutation/createTodoList')
+const deleteListResolver  = require('./mutation/deleteTodoList')
+const getListsResolver  = require('./query/getTodoLists')
 
 const customScalarResolver = {
   Date: GraphQLDateTime

@@ -17,10 +17,10 @@ module.exports = [linkSchema,
   require('./type/todoLists'),
 
   // queries
-  require('./query/getLists'),
+  require('./query/getTodoLists'),
 
   // mutations
-  require('./mutation/createList'),
-  require('./mutation/deleteList'),
-  require('./mutation/updateList'),
+  require('./mutation/createTodoList'),
+  require('./mutation/deleteTodoList'),
+  require('./mutation/updateTodoList'),
 ]

@@ -1,16 +1,16 @@
 const { UserInputError } = require('apollo-server-express')
 
 const dependency = {
-  updateList: require('../../../../../domain/usecases/updateList').updateList,
+  deleteList: require('../../../../../domain/usecases/deleteList').deleteList,
 }
 
 const resolvers = {
   Mutation: {
-    updateList: async (parent, args) => {
+    deleteTodoList: async (parent, args) => {
       const di = Object.assign({}, dependency, args.injection)
-      const uc = di.updateList(args.injection)
-      const hasAccess = uc.authorize({ canUpdateList: true }) // TODO: authorize user
-      const response = await uc.run({ id: args.id, name: args.name })
+      const uc = di.deleteList(args.injection)
+      const hasAccess = uc.authorize({ canDeleteList: true }) // TODO: authorize user
+      const response = await uc.run(args.id)
 
       if (response.isErr) throw new UserInputError(null, { invalidArgs: response.err })
       return response.ok

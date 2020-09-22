@@ -1,8 +1,7 @@
 const { gql } = require('apollo-server-express')
+const { TodoList } = require('../../../../../domain/entities/todoList')
+const { entity2gql } = require('../../../../../../../../herbs2gql/src/herbs2gql')
 
-module.exports = gql`
-  type TodoList {
-    id: String
-    name: String
-  }
-`
+const type = entity2gql(TodoList)
+
+module.exports = gql(type)

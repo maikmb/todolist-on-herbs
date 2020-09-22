@@ -8,7 +8,7 @@ const dependency = {
 
 const resolvers = {
   Query: {
-    getLists: async (parent, args) => {
+    getTodoLists: async (parent, args) => {
       const di = Object.assign({}, dependency, args.injection)
       const uc = di.getLists(args.injection)
       uc.authorize({ canGetLists: true }) // TODO: authorize user

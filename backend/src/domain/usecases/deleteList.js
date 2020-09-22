@@ -1,4 +1,4 @@
-const { Ok, Err, usecase, step, ifElse } = require('buchu')
+const { Ok, Err, usecase, step, ifElse } = require('../../../../../buchu/src/buchu')
 const { TodoList } = require('../../domain/entities/todoList')
 
 const dependency = {
@@ -8,6 +8,7 @@ const dependency = {
 module.exports.deleteList = injection =>
   usecase('Delete Todo List', {
     request: { id: Number },
+    response: TodoList,
 
     authorize: user => (user.canDeteleList ? Ok() : Err()),
 

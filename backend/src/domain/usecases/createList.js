@@ -1,4 +1,4 @@
-const { Ok, Err, usecase, step } = require('buchu')
+const { Ok, Err, usecase, step } = require('../../../../../buchu/src/buchu')
 const { TodoList } = require('../entities/todoList')
 
 const dependency = {
@@ -8,6 +8,7 @@ const dependency = {
 module.exports.createList = injection =>
   usecase('Create Todo List', {
     request: { name: String },
+    response: TodoList,
 
     authorize: user => (user.canCreateList ? Ok() : Err()),
 

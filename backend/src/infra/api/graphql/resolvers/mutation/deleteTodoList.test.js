@@ -18,7 +18,7 @@ describe('GraphQL - Mutations', () => {
                     }
                 }
             }
-            const createList = createListGQL.Mutation.createList
+            const createList = createListGQL.Mutation.createTodoList
 
             // When
             const ret = await createList(null, { injection, name: listName })
@@ -40,7 +40,7 @@ describe('GraphQL - Mutations', () => {
                     }
                 }
             }
-            const createList = createListGQL.Mutation.createList
+            const createList = createListGQL.Mutation.createTodoList
 
             // When
             const ret = async () => await createList(null, { injection, name: listName })

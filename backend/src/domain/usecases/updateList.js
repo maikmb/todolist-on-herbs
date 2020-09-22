@@ -1,4 +1,5 @@
-const { Ok, Err, usecase, step } = require('buchu')
+const { Ok, Err, usecase, step } = require('../../../../../buchu/src/buchu')
+const { TodoList } = require('../entities/todoList')
 
 const dependency = {
   ListRepository: require('../../infra/repositories/listRepository'),
@@ -7,6 +8,7 @@ const dependency = {
 module.exports.updateList = injection =>
   usecase('Update Todo List', {
     request: { id: Number, name: String },
+    response: TodoList,
 
     authorize: user => (user.canUpdateList ? Ok() : Err()),
 
